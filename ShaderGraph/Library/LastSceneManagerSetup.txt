@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Polyart/PolyartStudio/DreamscapeMeadows/Scenes/Demo.unity
+- path: Assets/Scenes/Shader_Glass_Basic.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
