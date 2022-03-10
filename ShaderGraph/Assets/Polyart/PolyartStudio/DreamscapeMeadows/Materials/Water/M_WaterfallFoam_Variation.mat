@@ -10,7 +10,7 @@ Material:
   m_Name: M_WaterfallFoam_Variation
   m_Shader: {fileID: 4800000, guid: 78af274e2e8a40b4487a223c82ab5048, type: 3}
   m_ShaderKeywords: 
-  m_LightmapFlags: 0
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -50,3 +50,4 @@ Material:
     - _Color0: {r: 0, g: 0.9495223, b: 1, a: 0}
     - _Color1: {r: 1, g: 1, b: 1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
