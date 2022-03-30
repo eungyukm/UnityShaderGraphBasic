@@ -41,7 +41,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Matallic: 0.1
-    - _Opacity: 0.414
+    - _Opacity: 0.69
     - _Smoothness: 0.8
     m_Colors:
     - _Albedo: {r: 1, g: 1, b: 1, a: 0.38431373}

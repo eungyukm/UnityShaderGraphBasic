@@ -19,6 +19,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _SampleTexture2D_2b0f818e680f4c11b29bb6490f2729d1_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 761d65d2998313942bb21a17bc1537d1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -32,8 +36,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Glass_Fresnel: 5.35
+    - Glass_Metallic: -0.13
+    - Glass_Smoothness: 0.9
     - Vector1_019a046f464d4e34bd1e04cb32a19bf4: 5
     - Vector1_68c395a4b5ba4a0c92b3c4cdd514ab97: 0
+    - _GlassFresnel: 5
+    - _Opacity: 0.6
     m_Colors:
     - Color_ffc602c461bd448fb4055611bbd23693: {r: 0.51085794, g: 0.6552875, b: 0.9433962, a: 0}
+    - Glass_Color: {r: 1, g: 1, b: 1, a: 0}
+    - _FrenelColor: {r: 0.345098, g: 0.01372549, b: 0, a: 0}
   m_BuildTextureStacks: []
