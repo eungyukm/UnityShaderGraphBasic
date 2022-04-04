@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Shader Graphs_ToxicWaterfallShader
+  m_Shader: {fileID: -6465566751694194690, guid: 1672cc6524c1f634e9e1c87818c29395, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_076ae8ccd1ce4fe686353432b04ef32c: 0.12
+    - Vector1_0cb83e775d374289826ea4563445f365: 0
+    - Vector1_e852958466dd4cb99fcea41d42ee0aa3: 1
+    - _Metallic: 0.44
+    - _Smoothness: 0.5
+    - _TransparencyMask: 0.9
+    - _VoronoiAgiation: 1
+    - _VoronoiPower: 4.76
+    - _VoronoiScale: 8.29
+    m_Colors:
+    - Vector2_0d889f3ab76a4f758eb81f81a0782052: {r: 0, g: -0.5, b: 0, a: 0}
+    - _BaseColor: {r: 0, g: 1.2026435, b: 1.5520597, a: 1}
+    - _VoronoiColor: {r: 1, g: 0.99127275, b: 0.94, a: 1}
+    - _VoronoiSpeed: {r: 0, g: 0.75, b: 0, a: 0}
+    - _VoronoiTiling: {r: 0.92, g: 0.6, b: 0, a: 0}
+  m_BuildTextureStacks: []
