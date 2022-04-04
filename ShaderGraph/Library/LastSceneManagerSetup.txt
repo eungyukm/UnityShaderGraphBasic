@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/ToxicWaterfall.unity
+- path: Assets/Scenes/Blood_Tutorial.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
