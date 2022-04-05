@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Shader Graphs_Water_Cartoon
+  m_Shader: {fileID: -6465566751694194690, guid: 49a38d58891b7d2449527e5572f93933, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_ea260bd276494b3c98b63ed7446759f9: 1.3
+    - Vector1_ef6c4338676e4121a9697099e198b229: 0.75
+    - _FoamOffset: 0.6
+    - _NormalStrength: 0.2
+    - _RipplesDissolve: 3.13
+    - _RipplesScale: 5
+    - _RipplesSpeed: 2
+    - _Transparency: 1
+    m_Colors:
+    - _BaseColor: {r: 0, g: 0.3028642, b: 0.3882353, a: 1}
+    - _FoamColor: {r: 1, g: 0, b: 0, a: 0}
+    - _NormalSpeed: {r: 0.5, g: 0, b: 0, a: 0}
+    - _RipplesColor: {r: 0, g: 0.9313212, b: 1.317647, a: 1}
+  m_BuildTextureStacks: []

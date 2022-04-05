@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/Blood_Tutorial.unity
+- path: Assets/Scenes/Water_Catoon.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
