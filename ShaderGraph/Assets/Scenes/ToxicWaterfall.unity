@@ -197,7 +197,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8812415440235795390, guid: cf2d35314c358d546b7b2d1c055cfb64, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8812415440235795390, guid: cf2d35314c358d546b7b2d1c055cfb64, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -226,6 +226,10 @@ PrefabInstance:
     - target: {fileID: 8812415441792818524, guid: cf2d35314c358d546b7b2d1c055cfb64, type: 3}
       propertyPath: m_Name
       value: vfx_Blood_Burst
+      objectReference: {fileID: 0}
+    - target: {fileID: 8812415441792818524, guid: cf2d35314c358d546b7b2d1c055cfb64, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8812415441792818525, guid: cf2d35314c358d546b7b2d1c055cfb64, type: 3}
       propertyPath: m_RootOrder
@@ -362,8 +366,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 866001240}
-  m_LocalRotation: {x: 0.24050564, y: -0.6870485, z: 0.26046038, w: 0.6342569}
-  m_LocalPosition: {x: 40.996647, y: 20.163273, z: -11.241665}
+  m_LocalRotation: {x: 0.16449139, y: -0.7608904, z: 0.21180597, w: 0.5908694}
+  m_LocalPosition: {x: 17.661438, y: 6.2984686, z: -9.274867}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
