@@ -40,27 +40,25 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _AlphaCutoff: 0.5
     - _ColorDepthFade: -0.21
-    - _DisplaceStrength: 0.521
+    - _DisplaceStrength: 0.174
     - _FoamCutoff: 0.74
     - _FoamDepthFade: -0.29
     - _FoamScale: 1.88
-    - _FoamSpeed: 0.2
-    - _Opacity: 0.752
+    - _FoamSpeed: 1
+    - _Opacity: 1
     - _ReflectionsIntensity: 0.242
     - _RefractionDepth: 3.37
     - _RefractionStrength: 2
-    - _Smoothness: 0.639
+    - _Smoothness: 1
     - _TurbulenceDistortionIntensity: 4.46
     - _TurbulenceScale: 1.77
     - _TurbulenceTiling: 10
-    - _WaveNormalIntensity: 0.876
+    - _WaveNormalIntensity: 0.233
     - _WaveTiling01: 3
     - _WorldtoObjectPosition: 0
     - __dirty: 0
     m_Colors:
-    - _ColorDeep: {r: 0, g: 0.4357107, b: 0.53773576, a: 0}
-    - _ColorShallow: {r: 0.9669811, g: 0.9925545, b: 1, a: 0}
-    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorDeep: {r: 0, g: 0.43571073, b: 0.5377358, a: 0}
+    - _ColorShallow: {r: 0.9669811, g: 0.99255455, b: 1, a: 0}
     - _FoamColor: {r: 1, g: 1, b: 1, a: 1}

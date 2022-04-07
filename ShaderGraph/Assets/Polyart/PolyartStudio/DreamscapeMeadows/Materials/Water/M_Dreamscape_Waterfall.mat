@@ -68,7 +68,6 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _AlphaCutoff: 0.5
     - _ColorDepthFade: 0.43
     - _DisplaceStrength: 0
     - _DisplaceStrength1: 0.469
@@ -105,5 +104,4 @@ Material:
     - _ColorDeep: {r: 0.06581525, g: 0.8207547, b: 0.7680069, a: 0}
     - _ColorShallow: {r: 0.35323954, g: 0.8556219, b: 0.9245283, a: 1}
     - _DisplacementMovement: {r: 0, g: 1, b: 0, a: 0}
-    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _LineColor: {r: 0.44811314, g: 1, b: 0.9224879, a: 1}

@@ -9,15 +9,14 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: M_Fire
   m_Shader: {fileID: 4800000, guid: 0406db5a14f94604a8c57ccfbc9f3b46, type: 3}
-  m_ShaderKeywords: _COLOROVERLAY_ON
-  m_LightmapFlags: 4
+  m_ShaderKeywords: _ALPHABLEND_ON _COLOROVERLAY_ON _FLIPBOOKBLENDING_OFF
+  m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
-  stringTagMap:
-    RenderType: Transparent
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   disabledShaderPasses:
-  - SHADOWCASTER
+  - ALWAYS
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -71,7 +70,7 @@ Material:
     - _CameraNearFadeDistance: 1
     - _ColorMode: 3
     - _Cull: 2
-    - _Cutoff: 0
+    - _Cutoff: 0.299
     - _DetailNormalMapScale: 1
     - _DistortionBlend: 0.5
     - _DistortionEnabled: 0
@@ -102,7 +101,7 @@ Material:
     - _ZWrite: 0
     m_Colors:
     - _BaseColor: {r: 1, g: 0.6882311, b: 0.41981128, a: 1}
-    - _BaseColorAddSubDiff: {r: -1, g: 0, b: 0, a: 0}
+    - _BaseColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
     - _Color: {r: 1, g: 0.6882311, b: 0.4198113, a: 1}
     - _ColorAddSubDiff: {r: -1, g: 0, b: 0, a: 0}
@@ -110,7 +109,7 @@ Material:
     - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
     - _TintColor: {r: 0.8773585, g: 0.6305184, b: 0, a: 0.5}
   m_BuildTextureStacks: []
---- !u!114 &7742478533292702183
+--- !u!114 &1704209563081058543
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

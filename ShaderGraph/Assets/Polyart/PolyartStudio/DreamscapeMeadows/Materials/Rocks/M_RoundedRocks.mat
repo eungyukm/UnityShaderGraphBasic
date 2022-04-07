@@ -10,7 +10,7 @@ Material:
   m_Name: M_RoundedRocks
   m_Shader: {fileID: 4800000, guid: 92a542d49c0d1d0478c243e758b81084, type: 3}
   m_ShaderKeywords: 
-  m_LightmapFlags: 2
+  m_LightmapFlags: 0
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -96,7 +96,6 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _AlphaCutoff: 0.5
     - _BlendnormalsON: 0
     - _BumpScale: 1
     - _CoverageContrast: 0.25
