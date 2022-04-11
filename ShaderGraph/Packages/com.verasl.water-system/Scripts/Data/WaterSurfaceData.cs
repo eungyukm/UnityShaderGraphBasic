@@ -71,8 +71,9 @@ namespace WaterSystem.Data
         public FoamSettings()
         {
             foamType = 0;
-            basicFoam = new AnimationCurve(new Keyframe[2]{new Keyframe(0.25f, 0f),
-                                                                    new Keyframe(1f, 1f)});
+            basicFoam = new AnimationCurve(new Keyframe[2]{
+                new Keyframe(0.25f, 0f), 
+                new Keyframe(1f, 1f)});
             liteFoam = new AnimationCurve(new Keyframe[3]{new Keyframe(0.2f, 0f),
                                                                     new Keyframe(0.4f, 1f),
                                                                     new Keyframe(0.7f, 0f)});
