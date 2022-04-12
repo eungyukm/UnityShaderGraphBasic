@@ -12,20 +12,116 @@ public static class URPGerstnerWavesJobs
     private static bool Initialized;
     private static bool _firstFrame = true;
     private static bool _processing;
-    private static int _waveount;
+    private static int _waveCount;
     private static NativeArray<Wave> _waveData;
     
     // Details for Buoyant Objects
     private static NativeArray<float3> _positions;
-    private static int _postionCount;
+    private static int _positionCount;
     private static NativeArray<float3> _wavePos;
     private static NativeArray<float3> _waveNormal;
-    private static JobHandle _waterHeighHandle;
+    private static JobHandle _waterHeightHandle;
     private static readonly Dictionary<int, int2> Registry = new Dictionary<int, int2>();
 
     public static void Init()
     {
-        // if(Debug.isDebugBuild)
+        if (Debug.isDebugBuild)
+        {
+            Debug.Log("Initializing Gerstner Waves Jobs");
+        }
+        
+        //Wave data
+        _waveCount = URPWater.Instance._waves.Length;
+        _waveData = new NativeArray<Wave>(_waveCount, Allocator.Persistent);
+        for (var i = 0; i < _waveData.Length; i++)
+        {
+            _waveData[i] = URPWater.Instance._waves[i];
+        }
+
+        _positions = new NativeArray<float3>(4096, Allocator.Persistent);
+        _wavePos = new NativeArray<float3>(4096, Allocator.Persistent);
+        _waveNormal = new NativeArray<float3>(4096, Allocator.Persistent);
+
+        Initialized = true;
+    }
+    
+    public static void Cleanup()
+    {
+        if(Debug.isDebugBuild)
+            Debug.Log("Cleaning up Gerstner Wave Jobs");
+        _waterHeightHandle.Complete();
+
+        //Cleanup native arrays
+        _waveData.Dispose();
+        _positions.Dispose();
+        _wavePos.Dispose();
+        _waveNormal.Dispose();
+    }
+    
+    public static void UpdateSamplePoints(ref NativeArray<float3> samplePoints, int guid)
+    {
+        CompleteJobs();
+
+        if (Registry.TryGetValue(guid, out var offsets))
+        {
+            for (var i = offsets.x; i < offsets.y; i++) _positions[i] = samplePoints[i - offsets.x];
+        }
+        else
+        {
+            if (_positionCount + samplePoints.Length >= _positions.Length) return;
+                
+            offsets = new int2(_positionCount, _positionCount + samplePoints.Length);
+            Registry.Add(guid, offsets);
+            _positionCount += samplePoints.Length;
+        }
+    }
+    
+    public static void GetData(int guid, ref float3[] outPos, ref float3[] outNorm)
+    {
+        if (!Registry.TryGetValue(guid, out var offsets)) return;
+            
+        _wavePos.Slice(offsets.x, offsets.y - offsets.x).CopyTo(outPos);
+        if(outNorm != null)
+            _waveNormal.Slice(offsets.x, offsets.y - offsets.x).CopyTo(outNorm);
+    }
+    
+    // Height jobs for the next frame
+    public static void UpdateHeights()
+    {
+        if (_processing) return;
+            
+        _processing = true;
+
+#if STATIC_EVERYTHING
+            var t = 0.0f;
+#else
+        var t = Time.time;
+#endif
+
+        // Buoyant Object Job
+        var waterHeight = new HeightJob()
+        {
+            WaveData = _waveData,
+            Position = _positions,
+            OffsetLength = new int2(0, _positions.Length),
+            Time = t,
+            OutPosition = _wavePos,
+            OutNormal = _waveNormal
+        };
+                
+        _waterHeightHandle = waterHeight.Schedule(_positionCount, 32);
+                
+        JobHandle.ScheduleBatchedJobs();
+
+        _firstFrame = false;
+    }
+
+    private static void CompleteJobs()
+    {
+        if (_firstFrame || !_processing) return;
+            
+        _waterHeightHandle.Complete();
+        _processing = false;
     }
 
     // 02. IJobParallelFor를 통해 Job System으로 Wave를 만들고 있습니다.

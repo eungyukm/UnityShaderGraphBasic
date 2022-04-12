@@ -1,13 +1,14 @@
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [System.Serializable]
 [CreateAssetMenu(fileName = "WaterSurfaceData", menuName = "WaterSystem/URP Surface Data", order = 0)]
 public class URPWaterSurfaceData : ScriptableObject
 {
     public float _waterMaxVisibility = 40.0f;
-    public Gradient _absorptioRamp;
+    [FormerlySerializedAs("_absorptioRamp")] public Gradient _absorptionRamp;
     public Gradient _scatterRamp;
     public List<Wave> _waves = new List<Wave>();
     public bool _customWaves = false;
@@ -41,7 +42,6 @@ public class BasicWaves
 {
     // Wave 개수
     public int numWaves = 6;
-    // 
     public float amplitude;
     public float direction;
     public float wavelength;
