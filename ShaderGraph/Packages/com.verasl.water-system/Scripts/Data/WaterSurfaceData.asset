@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b17284ebf5e80436eb6089f8c7459dab, type: 3}
   m_Name: WaterSurfaceData
   m_EditorClassIdentifier: 
-  _waterMaxVisibility: 16.2
+  _waterMaxVisibility: 20.3
   _absorptionRamp:
     serializedVersion: 2
-    key0: {r: 0, g: 0.58431375, b: 0.7490196, a: 1}
+    key0: {r: 0, g: 0.17662747, b: 0.2264151, a: 1}
     key1: {r: 0.18396229, g: 0.89963174, b: 1, a: 1}
     key2: {r: 0.021626905, g: 0.49048996, b: 0.509434, a: 0}
     key3: {r: 0, g: 0.275, b: 0.44, a: 0}
@@ -117,50 +117,32 @@ MonoBehaviour:
   _customWaves: 0
   randomSeed: 891
   _basicWaveSettings:
-    numWaves: 6
-    amplitude: 0.6
-    direction: -176
-    wavelength: 8
+    numWaves: 2
+    amplitude: 2.78
+    direction: -69
+    wavelength: 127.8
   _foamSettings:
-    foamType: 1
+    foamType: 2
     basicFoam:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
         value: 0
-        inSlope: 0.16228558
-        outSlope: 0.16228558
+        inSlope: 2
+        outSlope: 2
         tangentMode: 0
         weightedMode: 0
         inWeight: 0
-        outWeight: 0.15316528
-      - serializedVersion: 3
-        time: 0.6247411
-        value: 0.39698213
-        inSlope: 1.2551872
-        outSlope: 1.2551872
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.28785437
-      - serializedVersion: 3
-        time: 0.8523668
-        value: 0.81129223
-        inSlope: 1.9929253
-        outSlope: 1.9929253
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.27977753
-        outWeight: 0.33333334
+        outWeight: 0
       - serializedVersion: 3
         time: 1
         value: 1
-        inSlope: 0.6611113
-        outSlope: 0.6611113
+        inSlope: 0
+        outSlope: 0
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.55429333
+        inWeight: 0
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2

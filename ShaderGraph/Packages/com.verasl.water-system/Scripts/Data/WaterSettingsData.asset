@@ -16,7 +16,7 @@ MonoBehaviour:
   refType: 2
   planarSettings:
     m_ResolutionMultiplier: 3
-    m_ClipPlaneOffset: 0.24
+    m_ClipPlaneOffset: -0.338
     m_ReflectLayers:
       serializedVersion: 2
       m_Bits: 4294967295

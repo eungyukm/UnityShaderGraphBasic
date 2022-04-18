@@ -8,7 +8,7 @@ using UnityEngine.Serialization;
 public class URPWaterSurfaceData : ScriptableObject
 {
     public float _waterMaxVisibility = 40.0f;
-    [FormerlySerializedAs("_absorptioRamp")] public Gradient _absorptionRamp;
+    public Gradient _absorptionRamp;
     public Gradient _scatterRamp;
     public List<Wave> _waves = new List<Wave>();
     public bool _customWaves = false;

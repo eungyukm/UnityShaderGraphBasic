@@ -1,0 +1,20 @@
+{
+    "name": "URPWaterSystem.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:826e17f322cc3294d9d2a367efcaaff8",
+        "GUID:b75d3cd3037d383a8d1e2f9a26d73d8a",
+        "GUID:d8b63aba1907145bea998dd612889d6b"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

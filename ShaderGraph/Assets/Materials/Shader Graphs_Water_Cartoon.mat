@@ -41,8 +41,8 @@ Material:
     - _RipplesSpeed: 0.75
     - _Transparency: 0.001
     m_Colors:
-    - _BaseColor: {r: 0, g: 0.61960787, b: 0.76862746, a: 1}
-    - _FoamColor: {r: 0.6864454, g: 1.3936785, b: 1.6765717, a: 0.5764706}
+    - _BaseColor: {r: 0, g: 0.30980393, b: 0.38431373, a: 1}
+    - _FoamColor: {r: 0.34672558, g: 0.6978401, b: 0.83828586, a: 0.5764706}
     - _NormalSpeed: {r: 0.05, g: -0.01, b: 0, a: 0}
-    - _RipplesColor: {r: 0, g: 7.4505696, b: 10.541176, a: 1}
+    - _RipplesColor: {r: 0, g: 0.9382199, b: 1.317647, a: 1}
   m_BuildTextureStacks: []

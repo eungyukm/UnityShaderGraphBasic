@@ -9,7 +9,7 @@ using UnityEngine;
 public static class URPGerstnerWavesJobs
 {
     // General variables
-    private static bool Initialized;
+    public static bool Initialized;
     private static bool _firstFrame = true;
     private static bool _processing;
     private static int _waveCount;

@@ -3,8 +3,6 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Experimental.Rendering;
 using UnityEngine.Rendering.Universal;
-using UnityEngine.Serialization;
-using WaterSystem;
 using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 
@@ -25,7 +23,7 @@ public class URPWater : MonoBehaviour
             return _instance;
         }
     }
-
+    // 표면 반사
     private PlanarReflections _planarReflections;
 
     private bool _useComputeBuffer;
@@ -34,18 +32,21 @@ public class URPWater : MonoBehaviour
     // Depth Render Texture
     [SerializeField] private RenderTexture _depthTex;
     public Texture bakedDepthTex;
-    
     private Camera _depthCam;
     private Texture2D _rampTexture;
-
-    [SerializeField] public Wave[] _waves;
-    [SerializeField] private ComputeBuffer waveBuffer;
+    [SerializeField]
+    public Wave[] _waves;
+    [SerializeField]
+    private ComputeBuffer waveBuffer;
     private float _maxWaveHeight;
     private float _waveHeight;
 
-    [SerializeField] public URPWaterSettingsData settingsData;
-    [SerializeField] public URPWaterSurfaceData surfaceData;
-    [FormerlySerializedAs("_resources")] [SerializeField] private URPWaterResources resources;
+    [SerializeField]
+    public URPWaterSettingsData settingsData;
+    [SerializeField]
+    public URPWaterSurfaceData surfaceData;
+    [SerializeField] 
+    private URPWaterResources resources;
     
     private static readonly int CameraRoll = Shader.PropertyToID("_CameraRoll");
     private static readonly int InvViewProjection = Shader.PropertyToID("_InvViewProjection");
@@ -84,7 +85,12 @@ public class URPWater : MonoBehaviour
         // Water Resources는 Scripts > Data > WaterResources가 존재
         if (resources == null)
         {
-            resources = Resources.Load("WaterResources") as URPWaterResources;
+            resources = Resources.Load("URPWaterResources") as URPWaterResources;
+            Debug.Log("resource name : " + resources.name);
+        }
+        else
+        {
+            Debug.Log("resource name : " + resources.name);
         }
     }
 
@@ -125,7 +131,37 @@ public class URPWater : MonoBehaviour
         }
 
         var roll = cam.transform.localEulerAngles.z;
-        // Shader.SetGlobalFloat(CameraRo);
+        Shader.SetGlobalFloat(CameraRoll, roll);
+        Shader.SetGlobalMatrix(InvViewProjection,
+            (GL.GetGPUProjectionMatrix(cam.projectionMatrix, false) * cam.worldToCameraMatrix).inverse);
+
+        // Water matrix
+        const float quantizeValue = 6.25f;
+        const float forwards = 10f;
+        const float yOffset = -0.25f;
+
+        var newPos = cam.transform.TransformPoint(Vector3.forward * forwards);
+        newPos.y = yOffset;
+        newPos.x = quantizeValue * (int) (newPos.x / quantizeValue);
+        newPos.z = quantizeValue * (int) (newPos.z / quantizeValue);
+
+        var matrix = Matrix4x4.TRS(newPos + transform.position, Quaternion.identity, transform.localScale); // transform.localToWorldMatrix;
+
+        foreach (var mesh in resources.defaultWaterMeshes)
+        {
+            Graphics.DrawMesh(mesh,
+                matrix,
+                resources.defaultSeaMaterial,
+                gameObject.layer,
+                cam,
+                0,
+                null,
+                ShadowCastingMode.Off,
+                true,
+                null,
+                LightProbeUsage.Off,
+                null);
+        }
     }
     
     // 안전하게 제거하는 코드
@@ -142,8 +178,14 @@ public class URPWater : MonoBehaviour
     }
     
     // 10. Init 메서드를 아래와 같이 정의합니다.
-    private void Init()
+    public void Init()
     {
+        if(resources == null)
+        {
+            Debug.Log("Resources is null");
+            resources = Resources.Load("URPWaterResources") as URPWaterResources;
+        }
+        
         SetWaves();
         GenerateColorRamp();
         if (bakedDepthTex)
@@ -159,10 +201,6 @@ public class URPWater : MonoBehaviour
         _planarReflections.m_settings = settingsData.planarSettings;
         _planarReflections.enabled = settingsData.refType == ReflectionType.PlanarReflection;
 
-        if(resources == null)
-        {
-            resources = Resources.Load("WaterResources") as URPWaterResources;
-        }
         if(Application.platform != RuntimePlatform.WebGLPlayer) // TODO - bug with Opengl depth
             CaptureDepthMap();
     }
@@ -188,6 +226,9 @@ public class URPWater : MonoBehaviour
     private void SetWaves()
     {
         SetupWaves(surfaceData._customWaves);
+        
+        Debug.Log("FoamMap : " + FoamMap);
+        Debug.Log("Resource : " + resources.name);
         
         // set default resources
         Shader.SetGlobalTexture(FoamMap, resources.defaultFoamMap);
@@ -232,16 +273,38 @@ public class URPWater : MonoBehaviour
 
         if (_useComputeBuffer)
         {
+            Debug.Log("use ComputeBuffer");
             Shader.EnableKeyword("USE_STRUCTURED_BUFFER");
             waveBuffer?.Dispose();
             waveBuffer = new ComputeBuffer(10, (sizeof(float) * 6));
+            waveBuffer.SetData(_waves);
+            Shader.SetGlobalBuffer(WaveDataBuffer, waveBuffer);
+        }
+        else
+        {
+            Shader.DisableKeyword("USE_STRUCTURED_BUFFER");
+            Shader.SetGlobalVectorArray(WaveData, GetWaveData());
         }
         
         // CPU side
-        if (GerstnerWavesJobs.Initialized == false && Application.isPlaying)
+        if (URPGerstnerWavesJobs.Initialized == false && Application.isPlaying)
         {
-            GerstnerWavesJobs.Init();
+            URPGerstnerWavesJobs.Init();
         }
+    }
+    
+    private Vector4[] GetWaveData()
+    {
+        var waveData = new Vector4[20];
+        for (var i = 0; i < _waves.Length; i++)
+        {
+            waveData[i] = new Vector4(_waves[i].amplitude, _waves[i].direction, _waves[i].wavelength,
+                _waves[i].onmiDir);
+
+            waveData[i + 10] = new Vector4(_waves[i].origin.x, _waves[i].origin.y, 0, 0);
+        }
+
+        return waveData;
     }
     
     // 05. Wave를 SetUP 합니다.
@@ -278,23 +341,11 @@ public class URPWater : MonoBehaviour
             _waves = surfaceData._waves.ToArray();
         }
     }
-
-    private Vector4[] GetWaveData()
-    {
-        var waveData = new Vector4[20];
-        for (var i = 0; i < _waves.Length; i++)
-        {
-            waveData[i] = new Vector4(_waves[i].amplitude, _waves[i].direction, _waves[i].wavelength,
-                _waves[i].onmiDir);
-
-            waveData[i + 10] = new Vector4(_waves[i].origin.x, _waves[i].origin.y, 0, 0);
-        }
-
-        return waveData;
-    }
+    
     // 08. Generate color Ramp code
     private void GenerateColorRamp()
     {
+        Debug.Log("Color Ramp 생성 시작!");
         if (_rampTexture == null)
         {
             _rampTexture = new Texture2D(128, 4, GraphicsFormat.R8G8B8A8_SRGB, TextureCreationFlags.None);
