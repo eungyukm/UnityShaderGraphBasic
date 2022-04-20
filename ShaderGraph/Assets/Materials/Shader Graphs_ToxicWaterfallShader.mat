@@ -43,8 +43,8 @@ Material:
     - _VoronoiScale: 7.23
     m_Colors:
     - Vector2_0d889f3ab76a4f758eb81f81a0782052: {r: 0, g: -0.5, b: 0, a: 0}
-    - _BaseColor: {r: 0, g: 1.2026435, b: 1.5520597, a: 1}
-    - _VoronoiColor: {r: 1, g: 0.99127275, b: 0.94, a: 1}
-    - _VoronoiSpeed: {r: 0, g: 0.75, b: 0, a: 0}
-    - _VoronoiTiling: {r: 7.01, g: 8.7, b: 0, a: 0}
+    - _BaseColor: {r: 0, g: 0.3019608, b: 0.3882353, a: 1}
+    - _VoronoiColor: {r: 0.0627451, g: 0.061764706, b: 0.05882353, a: 1}
+    - _VoronoiSpeed: {r: 0.18, g: 0.02, b: 0, a: 0}
+    - _VoronoiTiling: {r: 1300, g: 1000, b: 0, a: 0}
   m_BuildTextureStacks: []
