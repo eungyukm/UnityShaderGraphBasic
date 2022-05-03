@@ -421,7 +421,7 @@
     "m_ShaderOutputName": "Vector2_1a3c2cf6bd694da89b3f447663c15298",
     "m_StageCapability": 2,
     "m_Value": {
-        "x": 0.0,
+        "x": 1.0,
         "y": 0.0
     },
     "m_DefaultValue": {
@@ -443,10 +443,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -627.2000122070313,
-            "y": 239.2000274658203,
+            "x": -632.7999877929688,
+            "y": 230.39999389648438,
             "width": 152.0,
-            "height": 33.5999755859375
+            "height": 33.600006103515628
         }
     },
     "m_Slots": [
