@@ -19,8 +19,8 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Texture2D_d17850c8b8c740c28e122bdfb5411811:
-        m_Texture: {fileID: 2800000, guid: 1465980f2c8832843a76e18224aa817d, type: 3}
+    - _Texture:
+        m_Texture: {fileID: 2800000, guid: 273a8248e5c290449a264eed53871f6e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -36,13 +36,20 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _DistotionSize: 3
-    - _DistotionSpeed: 3
+    - _Alpha: 0.5
+    - _Boolean: 0
+    - _DistotionSize: 2
+    - _DistotionSpeed: 0.5
     - _DistotionValue: 0.1
+    - _IsRotate: 1
     - _Metallic: 0
     - _Smoothness: 0
-    - _TextrueSpeed: 0.59
+    - _TextrueSpeedY: 0.00005
+    - _TextureSpeedY: 0.00001
     m_Colors:
-    - _SplashColor: {r: 5.019608, g: 5.019608, b: 5.019608, a: 0}
-    - _TilingNOffset: {r: 6.6, g: 10.64, b: 0, a: 0}
+    - _DirectionX: {r: 0.1, g: 0, b: 0, a: 0}
+    - _DirectionY: {r: 1, g: 1, b: 0, a: 0}
+    - _MainColor: {r: 0, g: 1.866667, b: 3.466667, a: 0}
+    - _SplashColor: {r: 0.3174795, g: 0.6091949, b: 0.9245283, a: 0}
+    - _TilingNOffset: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
