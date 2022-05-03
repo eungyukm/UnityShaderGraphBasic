@@ -42,6 +42,8 @@ Material:
     - _DistotionValue: 0.1
     - _Metallic: 0
     - _Smoothness: 0
+    - _Speed1: 0.5
+    - _Speed2: 3
     - _TextrueSpeed: 3
     m_Colors:
     - _DirectionX: {r: 0.1, g: 0, b: 0, a: 0}
@@ -49,4 +51,5 @@ Material:
     - _MainColor: {r: 0, g: 1.866667, b: 3.466667, a: 0}
     - _SplashColor: {r: 0.3174795, g: 0.6091949, b: 0.9245283, a: 0}
     - _TilingNOffset: {r: 1, g: 1, b: 0, a: 0}
+    - _TilingNOffset2: {r: 0.3, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
